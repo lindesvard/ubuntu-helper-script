@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USER="web"
-SSH_PORT="22"
+SSH_PORT="22123"
 
 # Create user
 sudo adduser $USER --gecos "$USER,0,0,0" --disabled-password
