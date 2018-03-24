@@ -19,6 +19,8 @@ This command will create a database and a user. Replace **{{db\_name}}**, **{{db
 #### Export database
 `pg_dump -U difstart_user difstart_db --password >> db_dump.sql`
 
+`pg_dump --data-only --inserts -U difstart_user difstart_db --password >> db_dump.sql`
+
 #### Export database but only data no structure
 `pg_dump --data-only -U difstart_user difstart_db --password >> db_dump_data.sql`
 
