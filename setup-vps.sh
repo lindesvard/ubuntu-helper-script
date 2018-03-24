@@ -24,3 +24,6 @@ sed -i 's/Port 22/Port '$SSH_PORT'/g' /etc/ssh/sshd_config
 
 # Restart ssh
 service ssh restart
+
+# Create a SSH key
+ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -N ''
