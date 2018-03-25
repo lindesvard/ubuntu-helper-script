@@ -37,8 +37,11 @@ add_header X-Frame-Options DENY;
 add_header X-Content-Type-Options nosniff;
 EOF
 
-sudo mkdir -p /home/web/letsencrypt/.well-known/acme-challenge
-sudo mkdir -p "/home/web/$DOMAIN"
+mkdir -p /home/web/letsencrypt/.well-known/acme-challenge
+mkdir -p $SITE_ROOT
+echo "<p>Hello $DOMAIN</p>" >> "$SITE_ROOT/index.html"
+
+sudo chmod -R 775 $SITE_ROOT
 
 cat > $NGINX_CONF <<EOF
 server {
