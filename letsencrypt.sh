@@ -41,6 +41,7 @@ mkdir -p /home/web/letsencrypt/.well-known/acme-challenge
 mkdir -p $SITE_ROOT
 echo "<p>Hello $DOMAIN</p>" >> "$SITE_ROOT/index.html"
 
+sudo chown -R web:web $SITE_ROOT
 sudo chmod -R 775 $SITE_ROOT
 
 cat > $NGINX_CONF <<EOF
