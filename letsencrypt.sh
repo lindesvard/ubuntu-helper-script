@@ -7,7 +7,7 @@ NGINX_CONF="/etc/nginx/sites-available/$DOMAIN"
 # https://gist.github.com/cecilemuller/a26737699a7e70a7093d4dc115915de8
 
 sudo apt-get -y install software-properties-common
-sudo add-apt-repository ppa:certbot/certbot
+sudo add-apt-repository -y ppa:certbot/certbot
 sudo apt-get update
 sudo apt-get -y install certbot
 
