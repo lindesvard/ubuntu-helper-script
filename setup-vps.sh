@@ -28,6 +28,14 @@ service ssh restart
 # Create a SSH key
 ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -N ''
 
+# Setup firewall
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow $SSH_PORT
+sudo ufw allow http
+sudo ufw enable
+sudo ufw status
+
 # Confirm you have no swap
 sudo swapon -s
  
