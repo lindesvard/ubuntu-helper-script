@@ -93,31 +93,31 @@ server {
 	}
 }
 
-## https://$DOMAIN redirects to https://www.$DOMAIN
-server {
-	listen 443 ssl http2;
-	listen [::]:443 ssl http2;
-	server_name $DOMAIN;
-
-	ssl_certificate /etc/letsencrypt/live/www.$DOMAIN/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/www.$DOMAIN/privkey.pem;
-	ssl_trusted_certificate /etc/letsencrypt/live/www.$DOMAIN/fullchain.pem;
-	include /etc/nginx/snippets/ssl.conf;
-
-	location / {
-		return 301 https://www.$DOMAIN$request_uri;
-	}
-}
+## https://www.$DOMAIN redirects to https://$DOMAIN
+#server {
+#	listen 443 ssl http2;
+#	listen [::]:443 ssl http2;
+#	server_name www.$DOMAIN;
+#
+#	ssl_certificate /etc/letsencrypt/live/www.$DOMAIN/fullchain.pem;
+#	ssl_certificate_key /etc/letsencrypt/live/www.$DOMAIN/privkey.pem;
+#	ssl_trusted_certificate /etc/letsencrypt/live/www.$DOMAIN/fullchain.pem;
+#	include /etc/nginx/snippets/ssl.conf;
+#
+#	location / {
+#		return 301 https://$DOMAIN$request_uri;
+#	}
+#}
 
 ## Serves https://www.$DOMAIN
 server {
-	server_name www.$DOMAIN;
+	server_name $DOMAIN;
 	listen 443 ssl http2 default_server;
 	listen [::]:443 ssl http2 default_server ipv6only=on;
 
-	ssl_certificate /etc/letsencrypt/live/www.$DOMAIN/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/www.$DOMAIN/privkey.pem;
-	ssl_trusted_certificate /etc/letsencrypt/live/www.$DOMAIN/fullchain.pem;
+	ssl_certificate /etc/letsencrypt/live/$DOMAIN/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/$DOMAIN/privkey.pem;
+	ssl_trusted_certificate /etc/letsencrypt/live/$DOMAIN/fullchain.pem;
 	include /etc/nginx/snippets/ssl.conf;
 
 	root $SITE_ROOT;
