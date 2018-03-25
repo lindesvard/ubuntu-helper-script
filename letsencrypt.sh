@@ -3,6 +3,7 @@
 DOMAIN=$1
 EMAIL=lindesvard@gmail.com
 NGINX_CONF="/etc/nginx/sites-available/$DOMAIN"
+SITE_ROOT="/home/web/$DOMAIN"
 
 # https://gist.github.com/cecilemuller/a26737699a7e70a7093d4dc115915de8
 
@@ -47,7 +48,7 @@ server {
 
 	include /etc/nginx/snippets/letsencrypt.conf;
 
-	root /home/web/$DOMAIN;
+	root $SITE_ROOT;
 	index index.html;
 	location / {
 		try_files $uri $uri/ =404;
@@ -115,10 +116,17 @@ server {
 	ssl_trusted_certificate /etc/letsencrypt/live/www.$DOMAIN/fullchain.pem;
 	include /etc/nginx/snippets/ssl.conf;
 
-	root /var/www/mydomain;
+	root $SITE_ROOT;
 	index index.html;
 	location / {
 		try_files $uri $uri/ =404;
+
+	        #proxy_pass http://127.0.0.1:3000;
+	        #proxy_http_version 1.1;
+	        #proxy_set_header Upgrade $http_upgrade;
+	        #proxy_set_header Connection 'upgrade';
+	        #proxy_set_header Host $host;
+	        #proxy_cache_bypass $http_upgrade;
 	}
 }
 EOF
