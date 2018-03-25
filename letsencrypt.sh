@@ -125,17 +125,15 @@ EOF
 
 sudo systemctl reload nginx
 
-cat > /home/web/letsencrypt.sh <<EOF
+cat > /home/web/letsencrypt-cron.sh <<EOF
 #!/bin/bash
 systemctl reload nginx
 EOF
 
-chmod +x /home/web/letsencrypt.sh
+chmod +x /home/web/letsencrypt-cron.sh
 
-#write out current crontab
-crontab -l > mycron
+echo ""
+echo ""
+echo "Add following to crontab"
 #echo new cron into cron file
-echo "20 3 * * * certbot renew --noninteractive --renew-hook /home/web/letsencrypt.sh" >> mycron
-#install new cron file
-crontab mycron
-rm mycron
+echo "20 3 * * * certbot renew --noninteractive --renew-hook /home/web/letsencrypt-cron.sh"
