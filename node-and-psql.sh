@@ -1,6 +1,9 @@
 #!/bin/bash
 
 NODE_VERSION=8.10
+DB_NAME="db_name"
+DB_USER="db_user"
+DB_PASSWORD="db_password"
 
 echo "Installning nvm & node $NODE_VERSION"
 sudo apt-get update
@@ -21,11 +24,11 @@ echo "sudo -i -u postgres psql"
 
 echo ""
 
-echo "CREATE DATABASE __DB__;"
-echo "CREATE USER __USER__ WITH ENCRYPTED PASSWORD '__PASSWORD__';"
-echo "GRANT CONNECT ON DATABASE __DB__ to __USER__;"
-echo "GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO __USER__;"
-echo "GRANT SELECT ON ALL TABLES IN SCHEMA public TO __USER__;"
+echo "CREATE DATABASE $DB_NAME;"
+echo "CREATE USER $DB_USER WITH ENCRYPTED PASSWORD '$DB_PASSWORD';"
+echo "GRANT CONNECT ON DATABASE $DB_NAME to $DB_USER;"
+echo "GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO $DB_USER;"
+echo "GRANT SELECT ON ALL TABLES IN SCHEMA public TO $DB_USER;"
 
 echo ""
 
