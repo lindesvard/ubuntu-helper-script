@@ -26,7 +26,7 @@ sed -i 's/Port 22/Port '$SSH_PORT'/g' /etc/ssh/sshd_config
 service ssh restart
 
 # Create a SSH key
-ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -N ''
+ssh-keygen -f "home/$USER/.ssh/id_rsa" -t rsa -N ''
 
 # Setup firewall
 sudo ufw default deny incoming
