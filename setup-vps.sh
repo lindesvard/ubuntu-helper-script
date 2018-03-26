@@ -28,6 +28,11 @@ service ssh restart
 # Create a SSH key
 ssh-keygen -f "home/$USER/.ssh/id_rsa" -t rsa -N ''
 
+sudo chmod 600 "home/$USER/.ssh/id_rsa"
+sudo chmod 600 "home/$USER/.ssh/id_rsa.pub"
+sudo chown web:web "home/$USER/.ssh/id_rsa"
+sudo chown web:web "home/$USER/.ssh/id_rsa.pub"
+
 # Setup firewall
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
