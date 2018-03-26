@@ -18,6 +18,14 @@ nvm install $NODE_VERSION
 nvm alias default $NODE_VERSION
 nvm use default
 
+echo "Installning Nginx"
+
+sudo apt-get -y install nginx
+
+sudo ufw allow 'Nginx Full'
+
+sudo systemctl status nginx
+
 echo "Installning DB"
 
 sudo apt-get -y install postgresql postgresql-contrib
