@@ -4,12 +4,12 @@
 
 SSH into your machine
 
-`curl -o setup-vps.sh https://raw.githubusercontent.com/lindesvard/ubuntu-helper-script/master/setup-vps.sh && sudo chmod +x setup-vps.sh`
+`curl -o setup-vps.sh https://raw.githubusercontent.com/lindesvard/ubuntu-helper-script/master/setup-vps.sh && sudo chmod +x setup-vps.sh && ./setup-vps.sh`
 
 Then run: `./setup-vps.sh`
 
 ## Install NVM
-`curl -o install-nvm.sh https://raw.githubusercontent.com/lindesvard/ubuntu-helper-script/master/install-nvm.sh && sudo chmod +x install-nvm.sh`
+`curl -o install-nvm.sh https://raw.githubusercontent.com/lindesvard/ubuntu-helper-script/master/install-nvm.sh && sudo chmod +x install-nvm.sh && ./install-nvm.sh`
 
 ## Create MySQL database with user
 
