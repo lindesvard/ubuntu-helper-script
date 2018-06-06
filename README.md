@@ -8,6 +8,9 @@ SSH into your machine
 
 Then run: `./setup-vps.sh`
 
+## Install NVM
+`curl -o install-nvm.sh https://raw.githubusercontent.com/lindesvard/ubuntu-helper-script/master/install-nvm.sh && sudo chmod +x install-nvm.sh`
+
 ## Create MySQL database with user
 
 Before you can run this command you need to change **$MYSQL\_USER** and **$MYSQL\_PASSWORD** in create-db.sh.
