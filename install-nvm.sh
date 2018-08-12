@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NODE_VERSION=8.10
+NODE_VERSION=9.11.2
 NVM_VERSION=0.33.11
 
 sudo apt-get update -y
