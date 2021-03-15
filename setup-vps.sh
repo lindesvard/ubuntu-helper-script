@@ -20,18 +20,18 @@ echo "$USER     ALL=(ALL) NOPASSWD:ALL" | sudo tee --append /etc/sudoers
 
 # ssh config
 sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-sed -i 's/Port 22/Port '$SSH_PORT'/g' /etc/ssh/sshd_config
+sed -i 's/#?Port 22/Port '$SSH_PORT'/g' /etc/ssh/sshd_config
 
 # Restart ssh
 service ssh restart
 
 # Create a SSH key
-ssh-keygen -f "home/$USER/.ssh/id_rsa" -t rsa -N ''
+ssh-keygen -f "/home/$USER/.ssh/id_rsa" -t rsa -N ''
 
-sudo chmod 600 "home/$USER/.ssh/id_rsa"
-sudo chmod 600 "home/$USER/.ssh/id_rsa.pub"
-sudo chown web:web "home/$USER/.ssh/id_rsa"
-sudo chown web:web "home/$USER/.ssh/id_rsa.pub"
+sudo chmod 600 "/home/$USER/.ssh/id_rsa"
+sudo chmod 600 "/home/$USER/.ssh/id_rsa.pub"
+sudo chown web:web "/home/$USER/.ssh/id_rsa"
+sudo chown web:web "/home/$USER/.ssh/id_rsa.pub"
 
 # Setup firewall
 sudo ufw default deny incoming
